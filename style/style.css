@@ -1,0 +1,171 @@
+
+body {
+--    background: #ebebeb url("tgrid20.png") left -2px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    line-height:20px;
+}
+
+
+/******************************************************************************
+ * Header **
+ ******************************************************************************/
+header{
+height: 71px;
+background: #F1F1F1;
+border-bottom: 1px solid #E5E5E5;
+overflow: hidden;
+padding: 0 44px;
+margin-bottom: 20px;
+}
+
+header h1 {
+    padding: 10px .5em;
+}
+      
+h1 {
+    margin:0;
+    font-size:16px;
+    line-height: 32px;
+    height: 32px;
+}
+
+h1 img {
+    height: 32px;
+    vertical-align: middle;
+}
+
+@media screen and (min-width: 500px) {
+    h1 img { height: 48px; }
+    h1 {font-size: 24px;}
+    header { }  
+}
+
+/******************************************************************************
+ * Menu
+ ******************************************************************************/
+menu { padding:0; }
+
+div.menu {height: 50px;
+	  margin: 0 0;
+	  padding:0 .5em;
+	  background: -moz-linear-gradient(top, rgba(99,141,59,1) 0%, rgba(85,120,50,1) 50%, rgba(40,40,40,1) 51%, rgba(40,40,40,0) 55%, rgba(40,40,40,0) 100%); /* FF3.6+ */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(99,141,59,1)), color-stop(50%,rgba(85,120,50,1)), color-stop(51%,rgba(40,40,40,1)), color-stop(55%,rgba(40,40,40,0)), color-stop(100%,rgba(40,40,40,0))); /* Chrome,Safari4+ */
+	  background: -webkit-linear-gradient(top, rgba(99,141,59,1) 0%,rgba(85,120,50,1) 50%,rgba(40,40,40,1) 51%,rgba(40,40,40,0) 55%,rgba(40,40,40,0) 100%); /* Chrome10+,Safari5.1+ */
+	  background: -o-linear-gradient(top, rgba(99,141,59,1) 0%,rgba(85,120,50,1) 50%,rgba(40,40,40,1) 51%,rgba(40,40,40,0) 55%,rgba(40,40,40,0) 100%); /* Opera 11.10+ */
+	  background: -ms-linear-gradient(top, rgba(99,141,59,1) 0%,rgba(85,120,50,1) 50%,rgba(40,40,40,1) 51%,rgba(40,40,40,0) 55%,rgba(40,40,40,0) 100%); /* IE10+ */
+	  background: linear-gradient(top, rgba(99,141,59,1) 0%,rgba(85,120,50,1) 50%,rgba(40,40,40,1) 51%,rgba(40,40,40,0) 55%,rgba(40,40,40,0) 100%); /* W3C */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638d3b', endColorstr='#00282828',GradientType=0 ); /* IE6-9 */
+	  text-align:center;
+}
+
+menu li {list-style-type: none;
+	display:inline;}
+menu li a {text-decoration: none;
+	   font-weight:600;
+	   color:white;
+	   padding: 4px .5em 4px 0;}
+      
+@media screen and (min-width: 500px) {
+    div.menu { text-align:left;}
+    menu li a {padding-right: 2em;}
+}
+
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+h2 {
+    display: inline-block;
+    margin:-4px 0 4px;
+    line-height:20px;
+}
+      
+p.by {
+    display: inline-block;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+      
+div.info, div.title {
+    padding-right:.5em; padding-left:.5em;
+}
+
+@media screen and (min-width: 500px) {
+    div.info, div.title, div.menu {
+	padding-right:2em; padding-left:2em;
+    }
+    div.title, menu, div.info {
+	margin:0 auto;
+	max-width: 970px;
+    }
+}
+
+.info p {max-width: 40em;}
+
+h3 {
+    font-weight:600;
+    font-size: 1em;
+    padding:0;
+    margin:1.25em 0 0 0;    
+}
+/******************************************************************************
+ * Video
+ ******************************************************************************/
+.player {
+    background-color: #444;
+    background-image: -moz-linear-gradient(top,#555,#333);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#555),to(#333));
+    progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr="#555555",endColorStr="#333333");
+    margin-bottom: 3em;
+    text-align:center;
+}
+
+video {width:100%;}
+
+
+@media screen and (min-width: 900px) {
+    video { height:510px; }
+}
+
+
+input[type="radio"] {
+    height: 13px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 2px;
+    padding: 0;
+    position: relative;
+    text-align: -webkit-auto;
+    text-indent: 0px;
+    text-shadow: none;
+    text-transform: none;
+    width: 13px;
+    word-spacing: 0px;
+}
+
+form ul {
+    padding-left: 26px;
+}
+form ul label {
+    margin-top: 0;
+}
+
+form ul.errorlist {
+    padding:0;
+}
+
+#join_text {
+    margin: 0 385px 0 0;
+}
+
+#join_form {
+    width: 335px;
+    float: right;
+}
+
+#content {
+width: 950px;
+margin: 0 auto;
+}
