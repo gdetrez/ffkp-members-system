@@ -4,7 +4,7 @@ from django.contrib import admin
 class MembershipInline(admin.TabularInline):
     model = Membership
     extra = 0
-    fields = ['valid_since', 'valid_until', 'status']
+    fields = ['valid_since', 'valid_until']
 
 class SubscriptionInline(admin.TabularInline):
     model = Subscription
@@ -36,9 +36,3 @@ class MLAdmin(admin.ModelAdmin):
     list_display = (unicode,)# 'email', 'valid_member')
 
 admin.site.register(MailingList, MLAdmin)
-
-
-class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'status')
-
-admin.site.register(Registration, RegistrationAdmin)

@@ -1,14 +1,10 @@
 from django.db import models
 import datetime
-from django.core.validators import MinValueValidator
-from django.core.exceptions import ValidationError
-from uuid import uuid1
 
-# Create your models here.
 
 class Member(models.Model):
     name = models.CharField(max_length=250)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     comments = models.TextField(blank=True)
 
     def __unicode__(self):
@@ -36,11 +32,6 @@ class Membership(models.Model):
     member = models.ForeignKey(Member, related_name='memberships')
     valid_since = models.DateField(default=default_membership_begin)
     valid_until = models.DateField(default=default_membership_end)
-    STATUS_CHOICES = (
-        ('V', 'Validated'),
-        ('P', 'Unpayed'),
-    )
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     comments = models.TextField(blank=True)
 
     def isValid(self):
@@ -69,29 +60,3 @@ class Subscription(models.Model):
     list = models.ForeignKey(MailingList, related_name='members')
     subscription_date = models.DateField(default = datetime.date.today, editable=False)
     expiration_date = models.DateField(default = default_membership_end)
-
-
-def validate_contribution(value):
-    if value < 50:
-        raise ValidationError(u'The minimum contribution is 50 SEK')
-
-
-class Registration(models.Model):
-    name = models.CharField(max_length=250)
-    email = models.EmailField()
-    contribution = models.IntegerField(default=50, validators=[validate_contribution])
-    token = models.CharField(max_length=36, default=uuid1, unique=True, editable = False)
-
-    STATUS_CHOICES = (
-        ('P', 'Waiting for payment'),
-        ('M', 'Waiting for email confirmation'),
-        ('F', 'Finished'),
-    )
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES,
-                              default='P', editable=False)
-
-    def validate_payment(self, method=None, amount = None):
-        pass
-        
-    def validate_email(self, token):
-        pass

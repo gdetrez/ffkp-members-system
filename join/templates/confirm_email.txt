@@ -1,0 +1,8 @@
+Hej,
+
+In order to complete your ffkp membership, we need you to confirm your email address. To do that, please follow this url:
+
+{{ registration.get_email_confirmation_url }}
+ 
+-- 
+The ffkp

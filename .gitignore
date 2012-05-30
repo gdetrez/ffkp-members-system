@@ -1,3 +1,5 @@
 *.pyc
 *~
-DB
+*.db
+_static/
+
