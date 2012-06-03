@@ -11,7 +11,8 @@ def validate_contribution(value):
 class Registration(models.Model):
     name = models.CharField(max_length=250)
     email = models.EmailField()
-    contribution = models.IntegerField(default=50, validators=[validate_contribution])
+    date = models.DateTimeField(auto_now_add=True, editable=False)
+    # contribution = models.IntegerField(default=50, validators=[validate_contribution])
     token = models.CharField(max_length=36, default=uuid1, unique=True, editable = False)
 
     STATUS_CHOICES = (

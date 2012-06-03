@@ -35,16 +35,9 @@
 	  {{ form.email.errors }}
 	</div>
 	
-	<div class="fieldWrapper{% if form.contribution.errors %} errors{% endif %}">
-	  <label for="id_contribution">Contribution</label>
-	  {{ form.contribution }}
-	  {{ form.contribution.errors }}
-	</div>
-	
 	<div class="submit-button">
-	  <button type=submit>Join!</button>
+	  <button type=submit>Next ➤</button>
 	</div>
-
 
 	{% csrf_token %}
       </form>
@@ -52,6 +45,7 @@
 
     <div id="join_text">
       <h2>Join FFKP!</h2>
+
       <p>Thank you for considering becoming a member of the FFKP!</p>
       
       <h3>What does it mean to be a member of FFKP?</h3>
