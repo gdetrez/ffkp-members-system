@@ -14,8 +14,7 @@ class Member(models.Model):
         today = datetime.date.today()
         return self.memberships.filter(
             valid_since__lte=today,
-            valid_until__gte=today,
-            status='V').exists()
+            valid_until__gte=today).exists()
     valid_member.boolean = True
         
 default_membership_begin = datetime.date.today
@@ -36,27 +35,7 @@ class Membership(models.Model):
 
     def isValid(self):
         today = datetiem.date.today()
-        return self.status == 'V' and self.valid_since <= today and valid_until >= today
+        return self.valid_since <= today and valid_until >= today
 
     def __unicode__(self):
-        return u"%d" % self.valid_until.year
-
-
-class MailingList(models.Model):
-    name = models.CharField(max_length=256)
-    domain = models.CharField(max_length=256)
-    LIST_TYPE = (
-        ('N', 'Newsletter'),
-        ('F', 'Forum'),
-    )
-    type = models.CharField(max_length=1, choices=LIST_TYPE)
-
-    def __unicode__(self):
-        return u"%s@%s" % (self.name, self.domain)
-
-
-class Subscription(models.Model):
-    member = models.ForeignKey(Member, related_name='lists')
-    list = models.ForeignKey(MailingList, related_name='members')
-    subscription_date = models.DateField(default = datetime.date.today, editable=False)
-    expiration_date = models.DateField(default = default_membership_end)
+        return u"%d membership for %s" % (self.valid_until.year, self.member.name)
